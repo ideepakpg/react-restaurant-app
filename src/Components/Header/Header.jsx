@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/system';
 import { Box, Typography } from '@mui/material';
 import CustomButton from '../CustomButton/CustomButton';
+import logoImage from '../../assets/logo.png';
+
+
+import MenuIcon from "@mui/icons-material/Menu";
+import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import HomeIcon from "@mui/icons-material/Home";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import {
+    Drawer,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+} from "@mui/material";
 
 
 function Header() {
+
+    const [mobileMenu, SetMobileMenu] = useState({ left: false })
+
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === "Keydown" && (event.type === "Tab" || event.type === "Shift")){
+            return;
+        }
+        SetMobileMenu({ ...mobileMenu, [anchor]: open })
+    }
 
     const nav_titles = [{
         path: '/',
@@ -43,11 +68,83 @@ function Header() {
         },
     }));
 
+    const NavBarLogo = styled("img")(({ theme }) => ({
+        cursor:'pointer',
+        [theme.breakpoints.down("md")]: {
+            display: "none",
+        },
+    }));
+
+    const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
+        cursor: 'pointer',
+        display: 'none',
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.down("md")]: {
+            display: "block",
+        },
+    }));
+
 
     return (
 
-        <Box>
-            <Box>
+        <>
+
+        <Box
+
+            sx={{
+
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '40px',
+                maxwidth: 'auto',
+                backgroundColor: '#FED801',
+                marginLeft: '0px',
+                marginBottom: '-24px'
+
+            } }
+
+        >
+            <Box
+
+                sx={{
+
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap:'2.5rem'
+
+                }}
+
+            >
+
+            {/*To enable logo uncomment the below code and import code */}
+
+                <Box
+
+                    sx={{
+
+                        display: 'flex',
+                        alignItems: 'center',                          
+
+                    }}
+
+                    >
+
+                        <CustomMenuIcon onClick={toggleDrawer("left", true)} />
+
+                        <Drawer
+                            anchor="left"
+                            open={mobileMenu["left"]}
+                            onClose={toggleDrawer("left", false)}
+                        >
+
+                        </Drawer>
+
+                    <NavBarLogo src={logoImage} />
+
+                </Box>
+
                 <NavBarLinksBox>
                     {
                         nav_titles.map((item, index) => (
@@ -60,19 +157,32 @@ function Header() {
                 </NavBarLinksBox>
             </Box>
 
-            <Box>
+            <Box
+
+                sx={{
+
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '1rem'
+
+                }}
+
+            >
                 <NavBarLink variant="body2">
                     Sign Up
                 </NavBarLink>
 
                 <CustomButton
-                    backgroundColor="#0F1B4C"
-                    color="black"
+                    backgroundColor='#0F1B4C'
+                    color='#000'
                     buttonText="Register"
                 />
             </Box>
 
-        </Box>
+        </Box >
+
+        </>
 
     );
 }
