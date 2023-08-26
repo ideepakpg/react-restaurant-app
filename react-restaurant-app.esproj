@@ -13,5 +13,6 @@
   <ItemGroup>
     <Folder Include="src\Components\Header\" />
     <Folder Include="src\Components\CustomButton\" />
+    <Folder Include="src\Components\Footer\" />
   </ItemGroup>
 </Project>
