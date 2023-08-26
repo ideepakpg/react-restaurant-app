@@ -1,16 +1,21 @@
 import React from 'react';
 import { useState } from 'react'
 import Header from './Components/Header/Header'
-import Welcome from './Pages/Welcome/Welcome';
+import WelcomePage from './Pages/WelcomePage/WelcomePage';
 import Footer from './Components/Footer/Footer';
+import PartnerPage from './Pages/PartnerPage/PartnerPage';
+import BookingPage from './Pages/BookingPage/BookingPage';
+
 
 function App() {
     return (
         <>
 
             <Header />
-            <Welcome />
+            <WelcomePage/>
             <Footer />
+            <PartnerPage />
+            <BookingPage />
 
         </>
     )
