@@ -3,8 +3,6 @@ import { styled } from '@mui/system';
 import { Box, Typography } from '@mui/material';
 import CustomButton from '../CustomButton/CustomButton';
 import logoImage from '../../assets/logo.png';
-
-
 import MenuIcon from "@mui/icons-material/Menu";
 import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
@@ -25,21 +23,21 @@ function Header() {
     const [mobileMenu, SetMobileMenu] = useState({ left: false })
 
     const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === "Keydown" && (event.type === "Tab" || event.type === "Shift")){
+        if (event.type === "Keydown" && (event.type === "Tab" || event.type === "Shift")) {
             return;
         }
         SetMobileMenu({ ...mobileMenu, [anchor]: open })
     }
 
     const list = (anchor) => (
-        <Box 
+        <Box
 
             sx={{
                 width: anchor === "top" || anchor === "bottom" ? "auto" : 250
             }}
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor,false)}
+            onKeyDown={toggleDrawer(anchor, false)}
 
         >
             <List>
@@ -47,10 +45,10 @@ function Header() {
                 {
                     nav_titles.map((item, index) => (
                         <ListItem key={index.index} disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
+                            <ListItemButton>
+                                <ListItemIcon>
                                     {
-                                        index === 0 && <HomeIcon/>
+                                        index === 0 && <HomeIcon />
                                     }
                                     {
                                         index === 1 && <FeaturedPlayListIcon />
@@ -63,11 +61,11 @@ function Header() {
                                     }
                                 </ListItemIcon>
                                 <ListItemText primary={item.display} />
-                    </ListItemButton>
-                </ListItem>
+                            </ListItemButton>
+                        </ListItem>
                     ))
                 }
-                
+
             </List>
         </Box>
     )
@@ -110,7 +108,7 @@ function Header() {
     }));
 
     const NavBarLogo = styled("img")(({ theme }) => ({
-        cursor:'pointer',
+        cursor: 'pointer',
         [theme.breakpoints.down("md")]: {
             display: "none",
         },
@@ -130,45 +128,45 @@ function Header() {
 
         <>
 
-        <Box
-
-            sx={{
-
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '40px',
-                maxwidth: 'auto',
-                backgroundColor: '#FED801',
-                marginLeft: '0px',
-                marginBottom: '-24px'
-
-            } }
-
-        >
             <Box
 
                 sx={{
 
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    gap:'2.5rem'
+                    justifyContent: 'space-between',
+                    padding: '40px',
+                    maxwidth: 'auto',
+                    backgroundColor: '#FED801',
+                    marginLeft: '0px',
+                    marginBottom: '-24px'
 
                 }}
 
             >
-
-            {/*To enable logo uncomment the below code and import code */}
-
                 <Box
 
                     sx={{
 
                         display: 'flex',
-                        alignItems: 'center',                          
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '2.5rem'
 
                     }}
+
+                >
+
+                    {/*To enable logo uncomment the below code and import code */}
+
+                    <Box
+
+                        sx={{
+
+                            display: 'flex',
+                            alignItems: 'center',
+
+                        }}
 
                     >
 
@@ -184,46 +182,46 @@ function Header() {
 
                         </Drawer>
 
-                    <NavBarLogo src={logoImage} />
+                        <NavBarLogo src={logoImage} />
 
+                    </Box>
+
+                    <NavBarLinksBox>
+                        {
+                            nav_titles.map((item, index) => (
+                                // eslint-disable-next-line react/jsx-key
+                                <NavBarLink variant="body2">
+                                    {item.display}
+                                </NavBarLink>
+                            ))
+                        }
+                    </NavBarLinksBox>
                 </Box>
 
-                <NavBarLinksBox>
-                    {
-                        nav_titles.map((item, index) => (
-                            // eslint-disable-next-line react/jsx-key
-                            <NavBarLink variant="body2">
-                                {item.display}
-                            </NavBarLink>
-                        ))
-                    }
-                </NavBarLinksBox>
-            </Box>
+                <Box
 
-            <Box
+                    sx={{
 
-                sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '1rem'
 
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '1rem'
+                    }}
 
-                }}
+                >
+                    <NavBarLink variant="body2">
+                        Sign Up
+                    </NavBarLink>
 
-            >
-                <NavBarLink variant="body2">
-                    Sign Up
-                </NavBarLink>
+                    <CustomButton
+                        backgroundColor='#0F1B4C'
+                        color='#000'
+                        buttonText="Register"
+                    />
+                </Box>
 
-                <CustomButton
-                    backgroundColor='#0F1B4C'
-                    color='#000'
-                    buttonText="Register"
-                />
-            </Box>
-
-        </Box >
+            </Box >
 
         </>
 
