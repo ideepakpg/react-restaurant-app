@@ -17,10 +17,14 @@ import {
     ListItemText,
 } from "@mui/material";
 
+import { useNavigate } from 'react-router-dom';
+
 
 function Header() {
 
     const [mobileMenu, SetMobileMenu] = useState({ left: false })
+
+    const navigate = useNavigate()
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === "Keydown" && (event.type === "Tab" || event.type === "Shift")) {
@@ -44,7 +48,7 @@ function Header() {
 
                 {
                     nav_titles.map((item, index) => (
-                        <ListItem key={index.index} disablePadding>
+                        <ListItem key={index.index} disablePadding onClick={() => navigate(item.path)}>
                             <ListItemButton>
                                 <ListItemIcon>
                                     {
@@ -75,15 +79,15 @@ function Header() {
         display: 'Home'
     },
     {
-        path: '/',
+        path: '/dishes',
         display: 'Dishes'
     },
     {
-        path: '/',
+        path: '/services',
         display: 'Services'
     },
     {
-        path: '/',
+        path: '/about-us',
         display: 'About us'
     }]
 
@@ -190,7 +194,7 @@ function Header() {
                         {
                             nav_titles.map((item, index) => (
                                 // eslint-disable-next-line react/jsx-key
-                                <NavBarLink variant="body2">
+                                <NavBarLink variant="body2" onClick={() => navigate(item.path)}>
                                     {item.display}
                                 </NavBarLink>
                             ))
