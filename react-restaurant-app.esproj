@@ -15,8 +15,11 @@
     <Folder Include="src\Components\CustomButton\" />
     <Folder Include="src\Components\Footer\" />
     <Folder Include="src\Components\CustomCard\" />
+    <Folder Include="src\LayoutRoutes\" />
     <Folder Include="src\Pages\AmbiancePage\" />
     <Folder Include="src\Pages\DeliveryPage\" />
+    <Folder Include="src\Pages\HomePage\" />
+    <Folder Include="src\Pages\NotFoundPage\" />
     <Folder Include="src\StaticData\" />
     <Folder Include="src\Pages\DishesPage\" />
   </ItemGroup>
