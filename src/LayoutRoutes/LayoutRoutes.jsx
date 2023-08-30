@@ -21,6 +21,7 @@ function LayoutRoutes() {
                 <Route path='/services' element={<BookingPage />} />
                 <Route path='/about-us' element={<AboutUsPage />} />
                 <Route path='/*' element={<NotFoundPage />} />
+                <Route path='/react-restaurant-app' element={<HomePage />} />
             </Routes>
 
             <Footer />
