@@ -3,8 +3,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>LaunchJsonDebugger</DebuggerFlavor>
     <LaunchJsonTarget>{
-  "name": "localhost (Chrome)",
-  "type": "chrome",
+  "name": "localhost (Edge)",
+  "type": "edge",
   "request": "launch",
   "url": "http://localhost:5173",
   "webRoot": "D:\\Visual Studio Programs\\React\\react-restaurant-app"
