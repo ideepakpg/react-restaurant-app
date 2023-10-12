@@ -21,7 +21,7 @@ Check out the live demo of the app: [React Restaurant App Demo](https://ideepakp
 
 ### Prerequisites
 
-- Node.js (npm)
+- [Node.js](https://nodejs.org/en) (npm)
 
 ### Installation
 
@@ -45,20 +45,8 @@ Check out the live demo of the app: [React Restaurant App Demo](https://ideepakp
     This will launch the app in development mode. Open your browser and navigate to `http://localhost:5173` to see the app.
     
 6. To build the app for production, run:
-   ```
+   ```sh
    npm run build
-
    ```
 
 
-
-
-
-## React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
